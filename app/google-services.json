@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1052990045476",
+    "firebase_url": "https://serviceday-f0083.firebaseio.com",
+    "project_id": "serviceday-f0083",
+    "storage_bucket": "serviceday-f0083.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052990045476:android:641d0310610c2a9b",
+        "android_client_info": {
+          "package_name": "com.example.serviceday"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052990045476-8g06trau5uili1llbcppcmfjr9gm0ivk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.serviceday",
+            "certificate_hash": "15fba5b9fb1ca28bdce6f21b526dd60455ec786a"
+          }
+        },
+        {
+          "client_id": "1052990045476-msvn8tr7ubgiil70d1kqn6g0estdea4r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMDiIlnTib0GP-NauUTIFUFdmeBJzVTdY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1052990045476-msvn8tr7ubgiil70d1kqn6g0estdea4r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
