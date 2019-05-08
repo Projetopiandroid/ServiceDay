@@ -30,9 +30,9 @@ public class GoogleSignInActivity extends BaseActivity implements
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
 
-    // [START declare_auth]
+    // [INICIO declare_auth]
     private FirebaseAuth mAuth;
-    // [END declare_auth]
+    // [FIM declare_auth]
 
     private GoogleSignInClient mGoogleSignInClient;
     private TextView mStatusTextView;
@@ -47,18 +47,18 @@ public class GoogleSignInActivity extends BaseActivity implements
         mStatusTextView = findViewById(R.id.status);
         mDetailTextView = findViewById(R.id.detail);
 
-        // Button listeners
+        // Botões de registrar, fazer logoff e desconectar
         findViewById(R.id.signInButton).setOnClickListener(this);
         findViewById(R.id.signOutButton).setOnClickListener(this);
         findViewById(R.id.disconnectButton).setOnClickListener(this);
 
-        // [START config_signin]
-        // Configure Google Sign In
+        // [INICIO CONFIGURAÇÃO DE Sign In]
+        // Configuração Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
-        // [END config_signin]
+        // [FIM CONFIGURAÇÃO DE Sign In]
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
@@ -68,15 +68,16 @@ public class GoogleSignInActivity extends BaseActivity implements
         // [END initialize_auth]
     }
 
-    // [START on_start_check_user]
+    // [Inicia verificação do utilizador]
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
+        //Verifica se o usuário está conectado (não nulo) e atualiza a IU de acordo.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
     }
-    // [END on_start_check_user]
+    // [Finaliza verificação do utilizador]
 
     // [START onactivityresult]
     @Override
@@ -84,14 +85,17 @@ public class GoogleSignInActivity extends BaseActivity implements
         super.onActivityResult(requestCode, resultCode, data);
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        // Resultado retornado do lançamento do Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 // Google Sign In was successful, authenticate with Firebase
+                // O login do Google foi bem sucedido, autenticado com o Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
+                // Falha no login do Google, atualize a interface do usuário adequadamente
                 Log.w(TAG, "Google sign in failed", e);
                 // [START_EXCLUDE]
                 updateUI(null);
@@ -114,12 +118,13 @@ public class GoogleSignInActivity extends BaseActivity implements
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+                            // Entre com sucesso, atualize a interface do usuário com as informações do usuário conectado
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
+                            // se o login falhar, exiba uma mensagem para o usuário
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Snackbar.make(findViewById(R.id.main_layout), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
                             updateUI(null);
@@ -142,9 +147,11 @@ public class GoogleSignInActivity extends BaseActivity implements
 
     private void signOut() {
         // Firebase sign out
+        // fecha conexão com (sign out)
         mAuth.signOut();
 
         // Google sign out
+        // Google fechar conexão ( sign out )
         mGoogleSignInClient.signOut().addOnCompleteListener(this,
                 new OnCompleteListener<Void>() {
                     @Override
@@ -159,6 +166,7 @@ public class GoogleSignInActivity extends BaseActivity implements
         mAuth.signOut();
 
         // Google revoke access
+        // Google revogar acesso
         mGoogleSignInClient.revokeAccess().addOnCompleteListener(this,
                 new OnCompleteListener<Void>() {
                     @Override
@@ -168,15 +176,18 @@ public class GoogleSignInActivity extends BaseActivity implements
                 });
     }
 
+    // Realiza update de Tela no activity
     private void updateUI(FirebaseUser user) {
         hideProgressDialog();
         if (user != null) {
+            // SE AUTENTICADO COM SUCESSO ENTRA AQUI
             mStatusTextView.setText(getString(R.string.google_status_fmt, user.getEmail()));
             mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
 
             findViewById(R.id.signInButton).setVisibility(View.GONE);
             findViewById(R.id.signOutAndDisconnect).setVisibility(View.VISIBLE);
         } else {
+            // SE OCORRER ALGUM ERRO NA AUTENTICAÇÃO ENTRA AQUI
             mStatusTextView.setText(R.string.signed_out);
             mDetailTextView.setText(null);
 

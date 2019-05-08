@@ -52,6 +52,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1052990045476-sok7jfrvm7aai4hhea18fgeu512t2vnj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.serviceday",
+            "certificate_hash": "f75abe4bea2a2b811e56ed8d74e861e6c124f470"
+          }
+        },
+        {
           "client_id": "1052990045476-n9hkor2flf09sm7knanr06hnpvm88f4a.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
