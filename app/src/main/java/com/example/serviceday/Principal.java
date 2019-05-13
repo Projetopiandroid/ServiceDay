@@ -1,6 +1,5 @@
 package com.example.serviceday;
 
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -20,12 +19,12 @@ public class Principal extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText("Contatos");
+                    //mTextMessage.setText("Contatos");
                     return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText("Serviços");
+                case R.id.navigation_service:
+                    //mTextMessage.setText("Serviços");
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_profile:
                     FragmentManager fm = getFragmentManager();
                     FragmentTransaction ft = fm.beginTransaction();
                     ft.replace(R.id.frameid,new Perfil());
@@ -44,6 +43,7 @@ public class Principal extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        getSupportActionBar().hide();
     }
 
 }

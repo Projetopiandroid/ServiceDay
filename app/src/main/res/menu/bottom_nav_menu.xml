@@ -3,17 +3,23 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="Inicio" />
+        android:icon="@drawable/ic_menu_mundo"
+        android:title="Ao redor" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="Serviço" />
+        android:id="@+id/navigation_addserv"
+        android:icon="@drawable/ic_menu_add"
+        android:title="Solicitar" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:id="@+id/navigation_service"
+        android:icon="@drawable/ic_menu_service"
+        android:title="Serviço"
+        />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_menu_perfil"
         android:title="Perfil" />
 
 </menu>
