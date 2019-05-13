@@ -13,7 +13,7 @@
         android:layout_height="352dp"
         app:srcCompat="@drawable/background"
         tools:layout_editor_absoluteX="-11dp"
-        tools:layout_editor_absoluteY="281dp" />
+        tools:layout_editor_absoluteY="259dp" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/signInButton"

@@ -1,5 +1,8 @@
 package com.example.serviceday;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +26,11 @@ public class Principal extends AppCompatActivity {
                     mTextMessage.setText("Serviços");
                     return true;
                 case R.id.navigation_notifications:
-                    mTextMessage.setText("Perfil");
+                    FragmentManager fm = getFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    ft.replace(R.id.frameid,new Perfil());
+                    ft.commit();
+
                     return true;
             }
             return false;
