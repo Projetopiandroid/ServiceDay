@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Entrada"></activity>
+        <activity
+            android:name=".Principal"
+            android:label="@string/title_activity_act_principal"></activity>
+        <activity android:name=".Entrada" />
         <activity android:name=".Cadastro" />
         <activity android:name=".GoogleSignInActivity">
             <intent-filter>

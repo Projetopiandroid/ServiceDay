@@ -48,8 +48,8 @@ public class GoogleSignInActivity extends BaseActivity implements
        // mDetailTextView = findViewById(R.id.detail);
 
         // Botões de registrar, fazer logoff e desconectar
-        /*findViewById(R.id.signInButton).setOnClickListener(this);
-        findViewById(R.id.signOutButton).setOnClickListener(this);
+        findViewById(R.id.signInButton).setOnClickListener(this);
+        /*findViewById(R.id.signOutButton).setOnClickListener(this);
         findViewById(R.id.disconnectButton).setOnClickListener(this);
         */
         // [INICIO CONFIGURAÇÃO DE Sign In]
@@ -183,7 +183,7 @@ public class GoogleSignInActivity extends BaseActivity implements
             // SE AUTENTICADO COM SUCESSO ENTRA AQUI
            // mStatusTextView.setText(getString(R.string.google_status_fmt, user.getEmail()));
             //mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
-
+            startActivity(new Intent( GoogleSignInActivity.this, Principal.class));
            //findViewById(R.id.signInButton).setVisibility(View.GONE);
             //findViewById(R.id.signOutAndDisconnect).setVisibility(View.VISIBLE);
         } else {
@@ -199,9 +199,9 @@ public class GoogleSignInActivity extends BaseActivity implements
     @Override
     public void onClick(View v) {
         int i = v.getId();
-        /*if (i == R.id.signInButton) {
+        if (i == R.id.signInButton) {
             signIn();
-        } else if (i == R.id.signOutButton) {
+        } /*else if (i == R.id.signOutButton) {
             signOut();
         } else if (i == R.id.disconnectButton) {
             revokeAccess();

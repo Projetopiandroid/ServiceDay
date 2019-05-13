@@ -7,4 +7,6 @@
     <color name="back_init">#6FC7F0</color>
     <color name="grey_300">#E0E0E0</color>
     <color name="grey_500">#9E9E9E</color>
+    <color name="name">#262626</color>
+    <color name="divisor_de_area">#00424242</color>
 </resources>
