@@ -6,16 +6,11 @@
         android:icon="@drawable/ic_menu_mundo"
         android:title="Ao redor" />
 
-    <item
-        android:id="@+id/navigation_addserv"
-        android:icon="@drawable/ic_menu_add"
-        android:title="Solicitar" />
 
     <item
         android:id="@+id/navigation_service"
         android:icon="@drawable/ic_menu_service"
-        android:title="Serviço"
-        />
+        android:title="Serviço" />
 
     <item
         android:id="@+id/navigation_profile"
