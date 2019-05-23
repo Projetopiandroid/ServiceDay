@@ -8,30 +8,32 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Perfil extends Fragment {
 
-    public Perfil() {
 
+public class Servico extends Fragment {
+
+
+
+    public Servico() {
+        // Required empty public constructor
     }
 
-        public static Perfil newInstance() {
-        Perfil fragment = new Perfil();
+        public static Servico newInstance() {
+        Servico fragment = new Servico();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_perfil, container, false);
+        View v = inflater.inflate(R.layout.fragment_servico, container, false);
+
 
 
         return v;
+        }
     }
 
-
-
-}

@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -30,6 +31,8 @@ public class GoogleSignInActivity extends BaseActivity implements
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
 
+    private Button botao;
+
     // [INICIO declare_auth]
     private FirebaseAuth mAuth;
     // [FIM declare_auth]
@@ -42,6 +45,7 @@ public class GoogleSignInActivity extends BaseActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google);
+
 
         // Views
        // mStatusTextView = findViewById(R.id.status);
@@ -66,7 +70,22 @@ public class GoogleSignInActivity extends BaseActivity implements
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
+
+        botao = findViewById(R.id.button2);
+        botao.setOnClickListener(ver);
     }
+    View.OnClickListener ver = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            Intent o = new Intent(GoogleSignInActivity.this,Principal.class);
+            startActivity(o);
+
+
+        }
+    };
+
+
 
     // [Inicia verificação do utilizador]
     @Override
@@ -208,4 +227,8 @@ public class GoogleSignInActivity extends BaseActivity implements
         }
         */
     }
+
+
+
 }
+
