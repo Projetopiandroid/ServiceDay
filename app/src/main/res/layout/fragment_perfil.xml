@@ -22,12 +22,12 @@
             android:layout_marginStart="16dp"
             android:src="@drawable/perfil"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintEnd_toStartOf="@+id/idNome"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/idNome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -39,13 +39,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/idLocalizacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Salvador, BA"
             android:textColor="#595959"
             app:layout_constraintStart_toEndOf="@+id/imageView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/idNome" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -53,7 +53,7 @@
             android:layout_height="19dp"
             android:src="@drawable/gps"
             app:layout_constraintStart_toEndOf="@+id/imageView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/idNome" />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -84,14 +84,14 @@
             android:gravity="center_horizontal|center_vertical">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/idInsign"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="25dp"
                 android:src="@drawable/insignia" />
 
             <ImageView
-                android:id="@+id/imageView41"
+                android:id="@+id/idInsign"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/insignia" />
@@ -203,12 +203,11 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/idDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="@string/Ipsum"
-                />
+                tools:text="itesdkhjk" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

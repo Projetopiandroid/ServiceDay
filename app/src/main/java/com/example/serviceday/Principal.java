@@ -6,11 +6,17 @@ import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
+
 import android.view.MenuItem;
 import android.widget.TextView;
 
+
+
+
+
 public class Principal extends AppCompatActivity {
     private TextView mTextMessage;
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -23,6 +29,8 @@ public class Principal extends AppCompatActivity {
                     return true;
                 case R.id.navigation_service:
                     //mTextMessage.setText("Serviços");
+
+
                     return true;
                 case R.id.navigation_profile:
                     FragmentManager fm = getFragmentManager();
@@ -33,6 +41,7 @@ public class Principal extends AppCompatActivity {
                     return true;
             }
             return false;
+
         }
     };
 
@@ -44,6 +53,9 @@ public class Principal extends AppCompatActivity {
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         getSupportActionBar().hide();
+
+
+
     }
 
 }
