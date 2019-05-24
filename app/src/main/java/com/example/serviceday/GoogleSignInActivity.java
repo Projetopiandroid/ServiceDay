@@ -71,17 +71,15 @@ public class GoogleSignInActivity extends BaseActivity implements
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
 
-        botao = findViewById(R.id.button2);
+        botao = findViewById(R.id.idButtonPula);
         botao.setOnClickListener(ver);
     }
+
     View.OnClickListener ver = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
             Intent o = new Intent(GoogleSignInActivity.this,Principal.class);
             startActivity(o);
-
-
         }
     };
 
@@ -205,6 +203,11 @@ public class GoogleSignInActivity extends BaseActivity implements
             startActivity(new Intent( GoogleSignInActivity.this, Principal.class));
            //findViewById(R.id.signInButton).setVisibility(View.GONE);
             //findViewById(R.id.signOutAndDisconnect).setVisibility(View.VISIBLE);
+
+
+
+
+
         } else {
             // SE OCORRER ALGUM ERRO NA AUTENTICAÇÃO ENTRA AQUI
             //mStatusTextView.setText(R.string.signed_out);

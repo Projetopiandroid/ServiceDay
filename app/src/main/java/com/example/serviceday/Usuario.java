@@ -1,5 +1,7 @@
 package com.example.serviceday;
 
+import android.net.Uri;
+
 public class Usuario {
 
 
@@ -14,6 +16,24 @@ public class Usuario {
     private Integer cep;
     private Integer numerocasa;
     private String email;
+    private String id;
+    private Uri foto;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Uri getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Uri foto) {
+        this.foto = foto;
+    }
 
     public String getNome() {
         return nome;

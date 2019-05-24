@@ -1,7 +1,5 @@
 package com.example.serviceday;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -29,10 +27,22 @@ public class Perfil extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         //usuario.setEmail("leandro.almeida98@hotmail.com");
         View v = inflater.inflate(R.layout.fragment_perfil, container, false);
+
+
+
+
+
+
+
+
+
+
         //txt = v.findViewById(R.id.idDesc);
         //txt.setText(usuario.getEmail());
         return v;
     }
+
+
 
 
 
