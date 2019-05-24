@@ -1,22 +1,17 @@
 package com.example.serviceday;
 
+
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
-
 import android.view.MenuItem;
 import android.widget.TextView;
 
-
-
-
-
 public class Principal extends AppCompatActivity {
     private TextView mTextMessage;
-
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -25,14 +20,22 @@ public class Principal extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    //mTextMessage.setText("Contatos");
+                    FragmentManager fx = getFragmentManager();
+                    FragmentTransaction fa = fx.beginTransaction();
+                    fa.replace(R.id.frameid,new Contatos());
+                    fa.commit();
                     return true;
+
                 case R.id.navigation_service:
-                    //mTextMessage.setText("Serviços");
 
-
+                    FragmentManager fe = getFragmentManager();
+                    FragmentTransaction fl = fe.beginTransaction();
+                    fl.replace(R.id.frameid,new Servico());
+                    fl.commit();
                     return true;
+
                 case R.id.navigation_profile:
+
                     FragmentManager fm = getFragmentManager();
                     FragmentTransaction ft = fm.beginTransaction();
                     ft.replace(R.id.frameid,new Perfil());
@@ -41,7 +44,6 @@ public class Principal extends AppCompatActivity {
                     return true;
             }
             return false;
-
         }
     };
 
@@ -53,9 +55,6 @@ public class Principal extends AppCompatActivity {
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         getSupportActionBar().hide();
-
-
-
     }
 
 }

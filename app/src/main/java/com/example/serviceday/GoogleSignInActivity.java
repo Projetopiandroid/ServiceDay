@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -21,29 +22,16 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 //import com.google.firebase.quickstart.auth.R;
 
-
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import java.util.HashMap;
-import java.util.Map;
-import android.util.Log;
-
-
-
-
 /**
  * Demonstrate Firebase Authentication using a Google ID Token.
  */
 public class GoogleSignInActivity extends BaseActivity implements
         View.OnClickListener {
-    Usuario usuario = new Usuario();
+
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
 
-    //BANCOOO
-    //private static final String TAG = "DocSnippets";
+    private Button botao;
 
     // [INICIO declare_auth]
     private FirebaseAuth mAuth;
@@ -57,6 +45,7 @@ public class GoogleSignInActivity extends BaseActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google);
+
 
         // Views
        // mStatusTextView = findViewById(R.id.status);
@@ -82,40 +71,21 @@ public class GoogleSignInActivity extends BaseActivity implements
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
 
-
-
-        // BANCOOOOOOOOO TESTE
-
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-        // Create a new user with a first and last name
-        Map<String, Object> user = new HashMap<>();
-        user.put("first", "Ada");
-        user.put("last", "Lovelace");
-        user.put("born", 1815);
-
-        // Add a new document with a generated ID
-        db.collection("users")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
-                    }
-                });
-
-
-
-
-
-
+        botao = findViewById(R.id.button2);
+        botao.setOnClickListener(ver);
     }
+    View.OnClickListener ver = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            Intent o = new Intent(GoogleSignInActivity.this,Principal.class);
+            startActivity(o);
+
+
+        }
+    };
+
+
 
     // [Inicia verificação do utilizador]
     @Override
@@ -235,9 +205,6 @@ public class GoogleSignInActivity extends BaseActivity implements
             startActivity(new Intent( GoogleSignInActivity.this, Principal.class));
            //findViewById(R.id.signInButton).setVisibility(View.GONE);
             //findViewById(R.id.signOutAndDisconnect).setVisibility(View.VISIBLE);
-
-
-
         } else {
             // SE OCORRER ALGUM ERRO NA AUTENTICAÇÃO ENTRA AQUI
             //mStatusTextView.setText(R.string.signed_out);
@@ -260,4 +227,8 @@ public class GoogleSignInActivity extends BaseActivity implements
         }
         */
     }
+
+
+
 }
+

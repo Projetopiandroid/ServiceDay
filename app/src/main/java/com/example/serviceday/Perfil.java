@@ -14,7 +14,7 @@ public class Perfil extends Fragment {
     Usuario usuario = new Usuario();
     TextView txt;
     public Perfil() {
-        // Required empty public constructor
+
     }
 
     public static Perfil newInstance() {
