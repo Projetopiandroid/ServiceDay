@@ -10,9 +10,9 @@ import android.widget.TextView;
 
 public class Perfil extends Fragment {
 
-    Usuario usuario;
+    Usuario usuario = new Usuario();
     private final String TAG  = "DocsFirebase";
-    TextView txt;
+
     public Perfil() {
 
     }
@@ -24,16 +24,18 @@ public class Perfil extends Fragment {
         return fragment;
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         //usuario.setEmail("leandro.almeida98@hotmail.com");
         View v = inflater.inflate(R.layout.fragment_perfil, container, false);
-        txt = v.findViewById(R.id.idDesc);
+        TextView Descricao = v.findViewById(R.id.idDesc);
+        TextView Nome = v.findViewById(R.id.idNome);
+        //TextView Servicos = v.findViewById(R.id.idNome);
 
-        Log.d(TAG, " ------------------------------- MOSTRAR EMAIL abaixo ------------------------------- " );
-        Log.d(TAG, " ------------------------------- MOSTRAR EMAIL ------------------------------- "+usuario.getEmail() );
-       // txt.setText(usuario.getEmail());
+        Nome.setText(usuario.getNome());
+
+        //https://api.whatsapp.com/send?phone=5571983735644&text=sua%20mensagem
+
         return v;
     }
 

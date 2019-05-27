@@ -96,6 +96,10 @@ public class Principal extends AppCompatActivity {
             // authenticate with your backend server, if you have one. Use
             // FirebaseUser.getIdToken() instead.
 
+            usuario.setId(userAuth.getUid());
+            usuario.setEmail(userAuth.getEmail());
+            usuario.setNome(userAuth.getDisplayName());
+            usuario.setTelefone(userAuth.getPhoneNumber());
 
 
             // SALVAR NO BANCO
@@ -148,7 +152,6 @@ public class Principal extends AppCompatActivity {
                                                     Log.w(TAG, "Error adding document", e);
                                                 }
                                             });
-
 
                                 }
                             } else {

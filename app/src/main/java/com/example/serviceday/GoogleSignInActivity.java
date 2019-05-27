@@ -31,7 +31,7 @@ public class GoogleSignInActivity extends BaseActivity implements
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
 
-    private Button botao;
+
 
     // [INICIO declare_auth]
     private FirebaseAuth mAuth;
@@ -45,6 +45,7 @@ public class GoogleSignInActivity extends BaseActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google);
+        getSupportActionBar().hide();
 
 
         // Views
@@ -71,17 +72,10 @@ public class GoogleSignInActivity extends BaseActivity implements
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
 
-        botao = findViewById(R.id.idButtonPula);
-        botao.setOnClickListener(ver);
+
     }
 
-    View.OnClickListener ver = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent o = new Intent(GoogleSignInActivity.this,Principal.class);
-            startActivity(o);
-        }
-    };
+
 
 
 
