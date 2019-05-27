@@ -36,6 +36,8 @@ public class Principal extends AppCompatActivity {
     private TextView mTextMessage;
     private TextView teste;
     private final String TAG  = "DocsFirebase";
+    Usuario usuario = new Usuario();
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -78,16 +80,14 @@ public class Principal extends AppCompatActivity {
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         getSupportActionBar().hide();
-        Usuario usuario = new Usuario();
+
 
         FirebaseUser userAuth = FirebaseAuth.getInstance().getCurrentUser();
         if (userAuth != null) {
             //PEGAR DADOS DO AUTHETICADOR
 
             // Name, email address, and profile photo Url
-            usuario.setNome(userAuth.getDisplayName());
-            usuario.setEmail(userAuth.getEmail());
-            usuario.setFoto(userAuth.getPhotoUrl());
+
 
             // Check if user's email is verified
             boolean emailVerified = userAuth.isEmailVerified();
@@ -95,51 +95,66 @@ public class Principal extends AppCompatActivity {
             // The user's ID, unique to the Firebase project. Do NOT use this value to
             // authenticate with your backend server, if you have one. Use
             // FirebaseUser.getIdToken() instead.
-            usuario.setId(userAuth.getUid());
+
 
 
             // SALVAR NO BANCO
             FirebaseFirestore db = FirebaseFirestore.getInstance();
-            // Create a new user with a first and last name
-
-            /*Map<String, Object> user = new HashMap<>();
-            user.put("id", usuario.getId());
-            user.put("nome", usuario.getNome());
-            user.put("email", usuario.getEmail());
-            //user.put("foto", usuario.getFoto());
-
-
-            // Add a new document with a generated ID
-            db.collection("users")
-                    .add(user)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w(TAG, "Error adding document", e);
-                        }
-                    });
-            */
-
 
             // PEGAR NO BANCO
             db.collection("users")
-                    .whereEqualTo("id", "vP2LbwyqObPdnwcld5hxDsZ2ars2")
+                    //VERIFICA SE O USUARIO JÁ EXISTE NO BANCO DE DADOS PELO E-MAIL.
+                    .whereEqualTo("email", userAuth.getEmail())
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
+                                boolean naocadastrado=true;
                                 for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Log.d(TAG, document.getId() + " => " + document.getData());
+                                    naocadastrado =false;
+                                    // SE JA EXISTIR ELE MOSTRA OS DADOS.
+                                    Log.d(TAG, " ------------------------------- JA CADASTRADO ------------------------------- " );
+                                    usuario.setNome(document.get("nome").toString());
+                                    usuario.setEmail(document.get("email").toString());
+                                    //usuario.setFoto(document.get("foto").toString());
+                                    usuario.setId(document.get("id").toString());
+                                }
+                                if(naocadastrado){
+                                    Log.d(TAG, " ------------------------------- NÃO CADASTRADO ------------------------------- " );
+
+                                    // SE NÃO EXISTIR; SALVE NO BANCO
+                                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                    // Create a new user with a first and last name
+
+                                    Map<String, Object> user = new HashMap<>();
+                                    user.put("id", usuario.getId());
+                                    user.put("nome", usuario.getNome());
+                                    user.put("email", usuario.getEmail());
+                                    //user.put("foto", usuario.getFoto());
+
+                                    // Add a new document with a generated ID
+                                    db.collection("users")
+                                            .add(user)
+                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                @Override
+                                                public void onSuccess(DocumentReference documentReference) {
+                                                    Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Log.w(TAG, "Error adding document", e);
+                                                }
+                                            });
+
+
                                 }
                             } else {
                                 Log.w(TAG, "Error getting documents.", task.getException());
+                                Log.d(TAG, " ------------------------------- CONSULTA DEU ERRADO ------------------------------- " );
+
                             }
                         }
                     });

@@ -2,6 +2,7 @@ package com.example.serviceday;
 
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,8 @@ import android.widget.TextView;
 
 public class Perfil extends Fragment {
 
-    Usuario usuario = new Usuario();
+    Usuario usuario;
+    private final String TAG  = "DocsFirebase";
     TextView txt;
     public Perfil() {
 
@@ -27,18 +29,11 @@ public class Perfil extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         //usuario.setEmail("leandro.almeida98@hotmail.com");
         View v = inflater.inflate(R.layout.fragment_perfil, container, false);
+        txt = v.findViewById(R.id.idDesc);
 
-
-
-
-
-
-
-
-
-
-        //txt = v.findViewById(R.id.idDesc);
-        //txt.setText(usuario.getEmail());
+        Log.d(TAG, " ------------------------------- MOSTRAR EMAIL abaixo ------------------------------- " );
+        Log.d(TAG, " ------------------------------- MOSTRAR EMAIL ------------------------------- "+usuario.getEmail() );
+       // txt.setText(usuario.getEmail());
         return v;
     }
 
