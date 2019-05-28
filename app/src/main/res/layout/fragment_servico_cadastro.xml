@@ -14,13 +14,10 @@
         android:inputType="textPersonName"
         android:text="Serviço" />
 
-    <EditText
-        android:id="@+id/editText10"
+    <Spinner
+        android:id="@+id/spinnerid"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Select dos serviços" />
+        android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/editText11"
