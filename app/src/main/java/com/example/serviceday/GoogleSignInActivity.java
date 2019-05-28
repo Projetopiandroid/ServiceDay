@@ -47,11 +47,9 @@ public class GoogleSignInActivity extends BaseActivity implements
         setContentView(R.layout.activity_google);
         getSupportActionBar().hide();
 
-
         // Views
-       // mStatusTextView = findViewById(R.id.status);
-       // mDetailTextView = findViewById(R.id.detail);
-
+        // mStatusTextView = findViewById(R.id.status);
+        // mDetailTextView = findViewById(R.id.detail);
         // Botões de registrar, fazer logoff e desconectar
         findViewById(R.id.signInButton).setOnClickListener(this);
         /*findViewById(R.id.signOutButton).setOnClickListener(this);
@@ -71,8 +69,6 @@ public class GoogleSignInActivity extends BaseActivity implements
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
-
-
     }
 
 
@@ -94,7 +90,6 @@ public class GoogleSignInActivity extends BaseActivity implements
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         // Resultado retornado do lançamento do Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
@@ -122,7 +117,6 @@ public class GoogleSignInActivity extends BaseActivity implements
         // [START_EXCLUDE silent]
         showProgressDialog();
         // [END_EXCLUDE]
-
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -140,7 +134,6 @@ public class GoogleSignInActivity extends BaseActivity implements
                             Snackbar.make(findViewById(R.id.main_layout), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
                             updateUI(null);
                         }
-
                         // [START_EXCLUDE]
                         hideProgressDialog();
                         // [END_EXCLUDE]
@@ -159,8 +152,8 @@ public class GoogleSignInActivity extends BaseActivity implements
     private void signOut() {
         // Firebase sign out
         // fecha conexão com (sign out)
-        mAuth.signOut();
 
+        mAuth.signOut();
         // Google sign out
         // Google fechar conexão ( sign out )
         mGoogleSignInClient.signOut().addOnCompleteListener(this,
@@ -197,16 +190,10 @@ public class GoogleSignInActivity extends BaseActivity implements
             startActivity(new Intent( GoogleSignInActivity.this, Principal.class));
            //findViewById(R.id.signInButton).setVisibility(View.GONE);
             //findViewById(R.id.signOutAndDisconnect).setVisibility(View.VISIBLE);
-
-
-
-
-
         } else {
             // SE OCORRER ALGUM ERRO NA AUTENTICAÇÃO ENTRA AQUI
             //mStatusTextView.setText(R.string.signed_out);
             //mDetailTextView.setText(null);
-
             //findViewById(R.id.signInButton).setVisibility(View.VISIBLE);
             //findViewById(R.id.signOutAndDisconnect).setVisibility(View.GONE);
         }

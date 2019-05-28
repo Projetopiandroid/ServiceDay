@@ -52,7 +52,6 @@ public class Principal extends AppCompatActivity {
                     return true;
 
                 case R.id.navigation_service:
-
                     FragmentManager fe = getFragmentManager();
                     FragmentTransaction fl = fe.beginTransaction();
                     fl.replace(R.id.frameid,new Servico());
@@ -60,12 +59,10 @@ public class Principal extends AppCompatActivity {
                     return true;
 
                 case R.id.navigation_profile:
-
                     FragmentManager fm = getFragmentManager();
                     FragmentTransaction ft = fm.beginTransaction();
                     ft.replace(R.id.frameid,new Perfil());
                     ft.commit();
-
                     return true;
             }
             return false;
@@ -81,13 +78,11 @@ public class Principal extends AppCompatActivity {
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         getSupportActionBar().hide();
 
-
         FirebaseUser userAuth = FirebaseAuth.getInstance().getCurrentUser();
         if (userAuth != null) {
             //PEGAR DADOS DO AUTHETICADOR
 
             // Name, email address, and profile photo Url
-
 
             // Check if user's email is verified
             boolean emailVerified = userAuth.isEmailVerified();
@@ -135,6 +130,7 @@ public class Principal extends AppCompatActivity {
                                     user.put("id", usuario.getId());
                                     user.put("nome", usuario.getNome());
                                     user.put("email", usuario.getEmail());
+                                    user.put("telefone", usuario.getTelefone());
                                     //user.put("foto", usuario.getFoto());
 
                                     // Add a new document with a generated ID
@@ -152,9 +148,8 @@ public class Principal extends AppCompatActivity {
                                                     Log.w(TAG, "Error adding document", e);
                                                 }
                                             });
-
                                 }
-                            } else {
+                            } else{
                                 Log.w(TAG, "Error getting documents.", task.getException());
                                 Log.d(TAG, " ------------------------------- CONSULTA DEU ERRADO ------------------------------- " );
 

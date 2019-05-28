@@ -14,13 +14,15 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="90dp">
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             android:src="@drawable/perfil"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/idNome"
@@ -92,7 +94,7 @@
                 android:src="@drawable/insignia" />
 
             <ImageView
-                android:id="@+id/idInsign"
+                android:id="@+id/idInsign2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/insignia" />
@@ -101,7 +103,7 @@
     </LinearLayout>
     <!-- DIVISORIA -->
     <View
-        android:id="@+id/divider1"
+        android:id="@+id/divider2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_margin="2dp"
@@ -207,10 +209,16 @@
                 android:id="@+id/idDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
-                tools:text="itesdkhjk" />
+                android:padding="8dp" />
         </LinearLayout>
     </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="2dp"
+        android:background="@android:color/darker_gray" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -218,7 +226,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/textView99"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -229,15 +237,101 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/idDesc"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
-                tools:text="itesdkhjk" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/idLayout_Contato_Email">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:src="@mipmap/icon_email"
+                    tools:layout_conversion_absoluteHeight="48dp"
+                    tools:layout_conversion_absoluteWidth="113dp"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="349dp" />
+
+                <TextView
+                    android:id="@+id/idEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="leandro.almeida98@hotmail.com"
+                    android:textSize="14sp"
+                    tools:layout_conversion_absoluteHeight="19dp"
+                    tools:layout_conversion_absoluteWidth="299dp"
+                    tools:layout_editor_absoluteX="113dp"
+                    tools:layout_editor_absoluteY="363dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/idLayout_Contato_Whats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="-"
+                    android:layout_height="39dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icon_whatsapp2" />
+
+                <TextView
+                    android:id="@+id/idTel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:text="71983735644" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="-"
+                    android:layout_height="39dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icon_whatsapp2"
+                    tools:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="-"
+                    android:layout_height="39dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icon_whatsapp2"
+                    tools:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="-"
+                    android:layout_height="39dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icon_whatsapp2"
+                    tools:visibility="invisible" />
+
+            </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
