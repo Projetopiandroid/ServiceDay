@@ -11,8 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Serviço" />
+        android:hint="Nome do Serviço"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editText10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Telefone"
+        android:inputType="textPersonName" />
 
     <Spinner
         android:id="@+id/spinnerid"
@@ -24,8 +32,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Bairro" />
+        android:hint="Bairro"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editText12"

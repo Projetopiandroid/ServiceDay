@@ -45,6 +45,7 @@ public class ServicoCadastro extends Fragment {
         EditText descricao = v.findViewById(R.id.editText12);
         EditText servico = v.findViewById(R.id.editText9);
         EditText bairro = v.findViewById(R.id.editText11);
+        EditText telefone = v.findViewById(R.id.editText10);
         Spinner spinner = v.findViewById(R.id.spinnerid);
         Button Salvar = v.findViewById(R.id.button3);
         Usuario usuario = new Usuario();
@@ -53,7 +54,7 @@ public class ServicoCadastro extends Fragment {
 
 
         //Criando o Spiner e Populando valores
-        String [] valores ={"Marcenaria","Carpintaria","Energia","outros"};
+        String [] valores ={"Selecione o Tipo do Serviço","Marcenaria","Carpintaria","Energia","outros"};
 
         ArrayAdapter<String> LTRadapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_item, valores);
         LTRadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -61,6 +62,7 @@ public class ServicoCadastro extends Fragment {
         //-----------------------------------------------------------------------------------------------
 
         servicosbanco.setNomeServico(servico.getText().toString());
+        servicosbanco.setTelefone(telefone.getText().toString());
         servicosbanco.setBairro(bairro.getText().toString());
         servicosbanco.setDescrição(descricao.getText().toString());
         servicosbanco.setServico();
@@ -81,7 +83,7 @@ public class ServicoCadastro extends Fragment {
                 ServicosBanco.put("Telefone", servicosbanco.getTelefone());
 
                     // Add a new document with a generated ID
-                db.collection("ServicoCadastro")
+                db.collection("Services")
                         .add(service)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
