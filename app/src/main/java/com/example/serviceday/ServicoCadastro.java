@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class ServicoCadastro extends Fragment {
@@ -39,6 +47,9 @@ public class ServicoCadastro extends Fragment {
         EditText bairro = v.findViewById(R.id.editText11);
         Spinner spinner = v.findViewById(R.id.spinnerid);
         Button Salvar = v.findViewById(R.id.button3);
+        Usuario usuario = new Usuario();
+        ServicosBanco servicosbanco = new ServicosBanco();
+        final String TAG  = "DocsFirebase";
 
 
         //Criando o Spiner e Populando valores
@@ -49,10 +60,41 @@ public class ServicoCadastro extends Fragment {
         spinner.setAdapter(LTRadapter);
         //-----------------------------------------------------------------------------------------------
 
+        servicosbanco.setNomeServico(servico.getText().toString());
+        servicosbanco.setBairro(bairro.getText().toString());
+        servicosbanco.setDescrição(descricao.getText().toString());
+        servicosbanco.setServico();
+
         //Ação de Salvar no Banco
         View.OnClickListener enviar = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                Map<String, Object> ServicosBanco = new HashMap<>();
+
+                Usuario.put("email", usuario.getEmail());
+                ServicosBanco.put("nomeServico", servicosbanco.getNomeServico());
+                ServicosBanco.put("DescricaoServe", servicosbanco.getDescrição());
+                ServicosBanco.put("Bairro", servicosbanco.getBairro());
+                ServicosBanco.put("Telefone", servicosbanco.getTelefone());
+
+                    // Add a new document with a generated ID
+                db.collection("ServicoCadastro")
+                        .add(service)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error adding document", e);
+                            }
+                        });
 
 
 

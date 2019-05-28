@@ -43,6 +43,9 @@ public class Servico extends Fragment {
             @Override
             public void onClick(View v) {
 
+
+
+
             }
         };
         pesquisa.setOnClickListener(ver);
