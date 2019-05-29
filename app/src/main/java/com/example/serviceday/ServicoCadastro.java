@@ -83,13 +83,13 @@ public class ServicoCadastro extends Fragment {
                 Map<String, Object> ServicosBanco = new HashMap<>();
 
                 ServicosBanco.put("email", usuario.getEmail());
-                ServicosBanco.put("nomeServico", servicosbanco.getNomeServico());
-                ServicosBanco.put("DescricaoServe", servicosbanco.getDescrição());
-                ServicosBanco.put("Bairro", servicosbanco.getBairro());
-                ServicosBanco.put("Telefone", servicosbanco.getTelefone());
+                ServicosBanco.put("tipo", servicosbanco.getNomeServico());
+                ServicosBanco.put("descricao", servicosbanco.getDescrição());
+                ServicosBanco.put("bairro", servicosbanco.getBairro());
+                ServicosBanco.put("tel", servicosbanco.getTelefone());
 
                 // Add a new document with a generated ID
-                db.collection("Services")
+                db.collection("services")
                         .add(ServicosBanco)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override

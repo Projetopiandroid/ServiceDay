@@ -14,8 +14,6 @@
         <activity
             android:name=".Principal"
             android:label="@string/title_activity_act_principal"></activity>
-        <activity android:name=".Entrada" />
-        <activity android:name=".Cadastro" />
         <activity android:name=".GoogleSignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

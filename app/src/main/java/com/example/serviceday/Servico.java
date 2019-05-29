@@ -31,7 +31,7 @@ public class Servico extends Fragment {
 
 
     private final String TAG  = "DocsFirebase";
-
+    boolean loop=true;
     public Servico() {
         // Required empty public constructor
     }
@@ -55,28 +55,41 @@ public class Servico extends Fragment {
         final TextView desc = v.findViewById(R.id.idDesc);
         final TextView email = v.findViewById(R.id.idEmail);
 
+        final Button ButtonProx = v.findViewById(R.id.idButtonProx);
+
+        ButtonProx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loop= false;
+            }
+        });
+
 
 
 
         // SALVAR NO BANCO
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-
         // PEGAR NO BANCO
-        db.collection("Services")
+        db.collection("services")
                 //.whereEqualTo("email", userAuth.getEmail())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-                            boolean naocadastrado=true;
+
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                tipoServ.setText(document.get("nomeServico").toString());
-                                bairro.setText(document.get("Bairro").toString());
+
+                                tipoServ.setText(document.get("tipo").toString());
+                                Log.d(TAG, " ------------------------------- RESULTADO CONSULTA ------------------------------- "+document.get("tipo").toString());
+                               /* bairro.setText(document.get("Bairro").toString());
                                 tel.setText(document.get("Telefone").toString());
                                 desc.setText(document.get("DescricaoServe").toString());
                                 email.setText(document.get("email").toString());
+                                */
+                                while (loop){
 
+                                }
                             }
                         } else{
                             Log.w(TAG, "Error getting documents.", task.getException());
