@@ -73,6 +73,8 @@ public class Principal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -158,7 +160,10 @@ public class Principal extends AppCompatActivity {
                         }
                     });
 
-
+            FragmentManager fx = getFragmentManager();
+            FragmentTransaction fa = fx.beginTransaction();
+            fa.replace(R.id.frameid,new Servico());
+            fa.commit();
 
         }
 

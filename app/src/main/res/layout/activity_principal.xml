@@ -5,12 +5,13 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".Principal">
 
     <FrameLayout
         android:id="@+id/frameid"
         android:layout_width="match_parent"
-        android:layout_height="518dp"
+        android:layout_height="match_parent"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-2dp">
 

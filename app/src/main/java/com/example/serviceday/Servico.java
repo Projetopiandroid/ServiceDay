@@ -1,6 +1,7 @@
 package com.example.serviceday;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -29,9 +30,9 @@ import java.util.Map;
 
 public class Servico extends Fragment {
 
-
+    public static String[][] listaDados = new String[50][50];
     private final String TAG  = "DocsFirebase";
-    boolean loop=true;
+    int y = 0, i =0;
     public Servico() {
         // Required empty public constructor
     }
@@ -57,10 +58,22 @@ public class Servico extends Fragment {
 
         final Button ButtonProx = v.findViewById(R.id.idButtonProx);
 
-        ButtonProx.setOnClickListener(new View.OnClickListener() {
+        tel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loop= false;
+                //DICA CRIAR CLASSE PROFISSIONAL OU CRIAR ESPECIALIZAÇÃO COM HERANÇA
+                String url = "https://api.whatsapp.com/send?phone="+tel.getText().toString()+"&text=sua%20mensagem";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+        email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("mailto:" + email.getText().toString()));
+                startActivity(intent);
             }
         });
 
@@ -76,30 +89,34 @@ public class Servico extends Fragment {
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+
                         if (task.isSuccessful()) {
-
                             for (QueryDocumentSnapshot document : task.getResult()) {
-
-                                tipoServ.setText(document.get("tipo").toString());
-                                Log.d(TAG, " ------------------------------- RESULTADO CONSULTA ------------------------------- "+document.get("tipo").toString());
-                               /* bairro.setText(document.get("Bairro").toString());
-                                tel.setText(document.get("Telefone").toString());
-                                desc.setText(document.get("DescricaoServe").toString());
+                                tipoServ.setText("#"+document.get("tipo").toString());
+                                bairro.setText(document.get("bairro").toString());
+                                tel.setText(document.get("tel").toString());
+                                desc.setText(document.get("descricao").toString());
                                 email.setText(document.get("email").toString());
-                                */
-                                while (loop){
-
-                                }
                             }
                         } else{
                             Log.w(TAG, "Error getting documents.", task.getException());
                             Log.d(TAG, " ------------------------------- CONSULTA DEU ERRADO AO MOSTRAR SERVICO ------------------------------- " );
-
                         }
+
                     }
+
                 });
+
+
+
+        /*
+        */
+
         Log.d(TAG, " ENTROU NO FRAGMENTO" );
         return v;
         }
+
+
     }
 

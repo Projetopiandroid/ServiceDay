@@ -42,7 +42,7 @@ public class Perfil extends Fragment {
             public boolean onLongClick(View v) {
                 //TODO  FAZER METODO PARA PEGAR TELEFONE DO PROFISSIONAL CLICADO
                 //DICA CRIAR CLASSE PROFISSIONAL OU CRIAR ESPECIALIZAÇÃO COM HERANÇA
-                String url = "https://api.whatsapp.com/send?phone="+usuario.getTelefone()+"&text=sua%20mensagem";
+                String url = "https://api.whatsapp.com/send?phone="+usuario.getTelefone()+"&text=Olá%20possuo%20interesse%20em%20realizar%20o%20serviço!.";
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);

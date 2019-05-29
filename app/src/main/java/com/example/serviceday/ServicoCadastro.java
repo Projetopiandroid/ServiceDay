@@ -81,7 +81,6 @@ public class ServicoCadastro extends Fragment {
 
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                 Map<String, Object> ServicosBanco = new HashMap<>();
-
                 ServicosBanco.put("email", usuario.getEmail());
                 ServicosBanco.put("tipo", servicosbanco.getNomeServico());
                 ServicosBanco.put("descricao", servicosbanco.getDescrição());
