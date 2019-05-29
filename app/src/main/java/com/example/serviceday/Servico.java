@@ -61,7 +61,7 @@ public class Servico extends Fragment {
         tel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //DICA CRIAR CLASSE PROFISSIONAL OU CRIAR ESPECIALIZAÇÃO COM HERANÇA
+                //ENVIAR MENSAGEM POR WHATSAPP
                 String url = "https://api.whatsapp.com/send?phone="+tel.getText().toString()+"&text=sua%20mensagem";
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
@@ -71,14 +71,12 @@ public class Servico extends Fragment {
         email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //ENVIAR MENSAGEM POR E-MAIL
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("mailto:" + email.getText().toString()));
                 startActivity(intent);
             }
         });
-
-
-
 
         // SALVAR NO BANCO
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -89,7 +87,6 @@ public class Servico extends Fragment {
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
 
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {

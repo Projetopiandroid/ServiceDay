@@ -3,45 +3,109 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/back_init"
     android:orientation="vertical"
     tools:context=".ServicoCadastro">
 
-    <Spinner
-        android:id="@+id/spinnerid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/editText10"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Telefone"
-        android:inputType="textPersonName"
-        android:text="Lorem ipsum tood" />
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        >
 
-    <EditText
-        android:id="@+id/editText11"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F8F8F8"
+            android:text="SELECIONE O TIPO DE SERVIÇO"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinnerid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Bairro"
-        android:inputType="textPersonName"
-        android:text="ptiua" />
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editText12"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F8F8F8"
+            android:text="DADOS PARA CONTATO"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Telefone para contato"
+            android:inputType="textPersonName"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="descrição"
-        android:inputType="textMultiLine"
-        android:text="Lorem ipsum tood" />
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F8F8F8"
+            android:text="INFORME O BAIRRO DO SOLICITANTE"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Bairro onde será realizado o serviço"
+            android:inputType="textPersonName"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F8F8F8"
+            android:text="DETALHES DO SERVIÇO"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <EditText
+            android:id="@+id/editText12"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Descrever aqui detalhes sobre o serviço"
+            android:inputType="textMultiLine" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cadastrar" />
+        android:background="#FFFFFF"
+        android:text="REGISTRAR" />
 </LinearLayout>

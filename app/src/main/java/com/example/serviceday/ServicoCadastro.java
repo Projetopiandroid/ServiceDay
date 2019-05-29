@@ -1,5 +1,6 @@
 package com.example.serviceday;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -56,7 +58,7 @@ public class ServicoCadastro extends Fragment {
 
 
         //Criando o Spiner e Populando valores
-        String [] valores ={"Selecione o Tipo do Serviço","Marcenaria","Carpintaria","Energia","outros"};
+        String [] valores ={"Marcenaria","Carpintaria","Energia","outros"};
 
         ArrayAdapter<String> LTRadapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_item, valores);
         LTRadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -65,7 +67,7 @@ public class ServicoCadastro extends Fragment {
 
 
         servicosbanco.setNomeServico(spinner.getSelectedItem().toString());
-        Log.d(TAG, "SPINERRRRRRRRRRR: " +  servicosbanco.getNomeServico());
+       // Log.d(TAG, "SPINERRRRRRRRRRR: " +  servicosbanco.getNomeServico());
 
 
 
@@ -102,6 +104,12 @@ public class ServicoCadastro extends Fragment {
                                 Log.w(TAG, "Error adding document", e);
                             }
                         });
+
+                telefone.setText("");
+                bairro.setText("");
+                descricao.setText("");
+
+                Toast.makeText(getActivity(),"REGISTRADO COM SUCESSO!",Toast.LENGTH_SHORT).show();
 
 
 
