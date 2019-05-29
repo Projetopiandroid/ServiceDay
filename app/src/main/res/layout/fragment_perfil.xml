@@ -67,51 +67,11 @@
         android:layout_margin="2dp"
         android:background="@android:color/darker_gray" />
     <!-- INSIGNIA -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Insígnia"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal|center_vertical">
-
-            <ImageView
-                android:id="@+id/idInsign"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="25dp"
-                android:src="@drawable/insignia" />
-
-            <ImageView
-                android:id="@+id/idInsign2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/insignia" />
-        </LinearLayout>
-
-    </LinearLayout>
     <!-- DIVISORIA -->
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_margin="2dp"
-        android:background="@android:color/darker_gray" />
     <!-- SERVIÇO -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:orientation="vertical">
 
         <TextView
@@ -159,7 +119,6 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:typeface="serif" />
-
 
 
         </LinearLayout>
@@ -292,7 +251,7 @@
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    android:src="@drawable/icon_whatsapp2"
+                    android:src="@drawable/invisible"
                     tools:visibility="invisible" />
 
                 <ImageView
@@ -303,7 +262,7 @@
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    android:src="@drawable/icon_whatsapp2"
+                    android:src="@drawable/invisible"
                     tools:visibility="invisible" />
 
                 <ImageView
@@ -314,7 +273,7 @@
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    android:src="@drawable/icon_whatsapp2"
+                    android:src="@drawable/invisible"
                     tools:visibility="invisible" />
 
             </LinearLayout>
