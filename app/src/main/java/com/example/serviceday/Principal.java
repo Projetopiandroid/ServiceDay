@@ -47,14 +47,14 @@ public class Principal extends AppCompatActivity {
                 case R.id.navigation_home:
                     FragmentManager fx = getFragmentManager();
                     FragmentTransaction fa = fx.beginTransaction();
-                    fa.replace(R.id.frameid,new Contatos());
+                    fa.replace(R.id.frameid,new Servico());
                     fa.commit();
                     return true;
 
                 case R.id.navigation_service:
                     FragmentManager fe = getFragmentManager();
                     FragmentTransaction fl = fe.beginTransaction();
-                    fl.replace(R.id.frameid,new Servico());
+                    fl.replace(R.id.frameid,new ServicoCadastro());
                     fl.commit();
                     return true;
 
@@ -93,9 +93,10 @@ public class Principal extends AppCompatActivity {
 
             usuario.setId(userAuth.getUid());
             usuario.setEmail(userAuth.getEmail());
+
             usuario.setNome(userAuth.getDisplayName());
             usuario.setTelefone(userAuth.getPhoneNumber());
-
+            Log.d(TAG, " ------------------------------- VER TELEFONE ------------------------------- ");
 
             // SALVAR NO BANCO
             FirebaseFirestore db = FirebaseFirestore.getInstance();

@@ -1,12 +1,12 @@
 package com.example.serviceday;
 
-public class ServicosBanco {
+public class services {
 
-    private String Servico;
-    private String Bairro;
-    private String NomeServico;
-    private String Descrição;
-    private String Telefone;
+    private static String Servico;
+    private static String Bairro;
+    private static String NomeServico;
+    private static String Descrição;
+    private static String Telefone;
 
     public String getTelefone() {
         return Telefone;

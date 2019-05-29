@@ -6,13 +6,10 @@
     android:orientation="vertical"
     tools:context=".ServicoCadastro">
 
-    <EditText
-        android:id="@+id/editText9"
+    <Spinner
+        android:id="@+id/spinnerid"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Nome do Serviço"
-        android:inputType="textPersonName" />
+        android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/editText10"
@@ -20,12 +17,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Telefone"
-        android:inputType="textPersonName" />
-
-    <Spinner
-        android:id="@+id/spinnerid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:inputType="textPersonName"
+        android:text="Lorem ipsum tood" />
 
     <EditText
         android:id="@+id/editText11"
@@ -33,16 +26,18 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Bairro"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:text="ptiua" />
 
     <EditText
         android:id="@+id/editText12"
         android:layout_width="match_parent"
-        android:layout_height="352dp"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="start|top"
         android:hint="descrição"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        android:text="Lorem ipsum tood" />
 
     <Button
         android:id="@+id/button3"

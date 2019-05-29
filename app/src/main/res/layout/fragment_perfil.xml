@@ -160,20 +160,7 @@
                 android:textStyle="bold"
                 android:typeface="serif" />
 
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:background="#FF0000"
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp"
-                android:text="#Cozinha"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:typeface="serif" />
+
 
         </LinearLayout>
     </LinearLayout>
@@ -281,7 +268,7 @@
 
                 <ImageView
                     android:id="@+id/imageView8"
-                    android:layout_width="-"
+                    android:layout_width="0dp"
                     android:layout_height="39dp"
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1"
@@ -299,7 +286,7 @@
 
                 <ImageView
                     android:id="@+id/imageView9"
-                    android:layout_width="-"
+                    android:layout_width="0dp"
                     android:layout_height="39dp"
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1"
@@ -310,7 +297,7 @@
 
                 <ImageView
                     android:id="@+id/imageView10"
-                    android:layout_width="-"
+                    android:layout_width="0dp"
                     android:layout_height="39dp"
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1"
@@ -321,7 +308,7 @@
 
                 <ImageView
                     android:id="@+id/imageView11"
-                    android:layout_width="-"
+                    android:layout_width="0dp"
                     android:layout_height="39dp"
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1"

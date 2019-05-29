@@ -16,13 +16,16 @@ import android.widget.Spinner;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class ServicoCadastro extends Fragment {
-
+    Usuario usuario = new Usuario();
+    services servicosbanco = new services();
     public ServicoCadastro() {
 
     }
@@ -42,14 +45,13 @@ public class ServicoCadastro extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_servico_cadastro, container, false);
 
-        EditText descricao = v.findViewById(R.id.editText12);
-        EditText servico = v.findViewById(R.id.editText9);
-        EditText bairro = v.findViewById(R.id.editText11);
-        EditText telefone = v.findViewById(R.id.editText10);
-        Spinner spinner = v.findViewById(R.id.spinnerid);
+        final EditText descricao = v.findViewById(R.id.editText12);
+        final EditText bairro = v.findViewById(R.id.editText11);
+        final EditText telefone = v.findViewById(R.id.editText10);
+        final Spinner spinner = v.findViewById(R.id.spinnerid);
         Button Salvar = v.findViewById(R.id.button3);
-        Usuario usuario = new Usuario();
-        ServicosBanco servicosbanco = new ServicosBanco();
+        final Usuario usuario = new Usuario();
+
         final String TAG  = "DocsFirebase";
 
 
@@ -61,30 +63,34 @@ public class ServicoCadastro extends Fragment {
         spinner.setAdapter(LTRadapter);
         //-----------------------------------------------------------------------------------------------
 
-        servicosbanco.setNomeServico(servico.getText().toString());
-        servicosbanco.setTelefone(telefone.getText().toString());
-        servicosbanco.setBairro(bairro.getText().toString());
-        servicosbanco.setDescrição(descricao.getText().toString());
-        servicosbanco.setServico();
+
+        servicosbanco.setNomeServico(spinner.getSelectedItem().toString());
+        Log.d(TAG, "SPINERRRRRRRRRRR: " +  servicosbanco.getNomeServico());
+
+
 
         //Ação de Salvar no Banco
         View.OnClickListener enviar = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                servicosbanco.setTelefone(telefone.getText().toString());
+                servicosbanco.setBairro(bairro.getText().toString());
+                servicosbanco.setDescrição(descricao.getText().toString());
+                servicosbanco.setNomeServico(spinner.getSelectedItem().toString());
 
-            // ai
+
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                 Map<String, Object> ServicosBanco = new HashMap<>();
 
-                Usuario.put("email", usuario.getEmail());
+                ServicosBanco.put("email", usuario.getEmail());
                 ServicosBanco.put("nomeServico", servicosbanco.getNomeServico());
                 ServicosBanco.put("DescricaoServe", servicosbanco.getDescrição());
                 ServicosBanco.put("Bairro", servicosbanco.getBairro());
                 ServicosBanco.put("Telefone", servicosbanco.getTelefone());
 
-                    // Add a new document with a generated ID
+                // Add a new document with a generated ID
                 db.collection("Services")
-                        .add(service)
+                        .add(ServicosBanco)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
@@ -102,12 +108,8 @@ public class ServicoCadastro extends Fragment {
 
             }
         };
-
         Salvar.setOnClickListener(enviar);
         //--------------------------------------------------------------------------------
-
-
-
 
         return v;
     }
